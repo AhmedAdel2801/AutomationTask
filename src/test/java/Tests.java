@@ -8,11 +8,13 @@ import org.testng.annotations.Test;
 public class Tests {
     SHAFT.GUI.WebDriver driver;
     SHAFT.TestData.JSON testData;
-    @Test
+    @Test(description = "Navigate to product and add item with price less than 1000")
     public void addProduct(){
 new P01_Login(driver).
         login((testData.getTestData("userName")),(testData.getTestData("password")))
-        .productsNavigation();
+        .productsNavigation()
+        .addProduct()
+        .verifyViewCartProducts();
 
     }
 
